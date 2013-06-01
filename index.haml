@@ -12,6 +12,7 @@
     %pre
     %script{:src => "javascripts/jquery-1.10.1.min.js"}
     :coffee
+      ### Adapted from http://www.fileformat.info/convert/text/upside-down-map.htm ###
       String::flip = () ->
           last = @length - 1
           result = new Array(@length)
