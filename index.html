@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      pre {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <input placeholder='Type text to rageflip here'>
+    <button>
+      Flip!
+    </button>
+    <pre></pre>
+    <script src='javascripts/jquery-1.10.1.min.js'></script>
+    <script src='javascripts/rageflip.js'></script>
+    <script>
+      (function() {
+        $(document).ready(function() {
+          var _this = this;
+      
+          $('button').click(function(e) {
+            e.preventDefault();
+            return $('pre').text("\u00A0(\u256F\u00B0\u25A1\u00B0\uFF09\u256F\uFE35\uFEFF " + $('input').val().flip());
+          });
+          $('input').keypress(function(e) {
+            if (e.which === 13) {
+              return $('button').click();
+            }
+          });
+          return $('input').focus();
+        });
+      
+      }).call(this);
+    </script>
+  </body>
+</html>

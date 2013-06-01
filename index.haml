@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    :css
+      pre {
+        font-size: 2em;
+      }
+  %body
+    %input{:placeholder => "Type text to rageflip here"}
+    %button
+      Flip!
+    %pre
+    %script{:src => "javascripts/jquery-1.10.1.min.js"}
+    %script{:src => "javascripts/rageflip.js"}
+    :coffee
+      $(document).ready () ->
+        $('button').click (e) =>
+            e.preventDefault()
+            $('pre').text "\u00A0(\u256F\u00B0\u25A1\u00B0\uFF09\u256F\uFE35\uFEFF " + $('input').val().flip()
+        $('input').keypress (e) =>
+            if e.which == 13
+              $('button').click()
+        $('input').focus()
